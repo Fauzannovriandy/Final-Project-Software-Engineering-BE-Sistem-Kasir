@@ -1,0 +1,60 @@
+program Sistemkasir
+
+READ AND WRITE "NamaToko" with string
+READ AND WRITE "NamaBarang" with string
+READ AND WRITE "HargaBarang" AS INTEGER with value
+READ AND WRITE "JumlahBarang" AS INTEGER with value
+READ AND WRITE "TotalPembayaran" AS INTEGER with value
+READ AND WRITE "HargaTotal" AS INTEGER with value
+READ AND WRITE "Diskon" AS INTEGER with value
+READ AND WRITE "BuktiPembayaran" with string
+
+
+DISPLAY "Sistem Kasir"
+STORE "NamaToko" with "TokoPalugada"
+DISPLAY "Kasir Toko Palugada"
+DISPLAY "Menu Utama"
+	STORE "NamaBarang" with "Kulkas"
+	STORE "HargaBarang" with 1000000
+	STORE "JumlahBarang" with 2
+	SET "HargaTotal" equal to 1000000 * 2
+	PRINT "Harga Total : Rp. 2.000.000"
+
+STORE "Diskon" with "HargaTotal" * 10%
+WHILE "HargaTotal" >1500000
+
+IF "HargaTotal" > 1500000
+	PRINT "Potongan Harga 10% karena pembelanjaan diatas Rp. 1.500.000"
+	WHILE "Diskon" equal "yes"
+		STORE "Diskon" with "Harga Total" * 10%
+		STORE "HargaTotal" with 2000000
+	SET "TotalPembayaran" equal to "HargaTotal - Diskon"
+	PRINT "Jumlah uang yang harus dibayarkan ialah : Rp. 1.800.000"
+
+ELSE
+	PRINT "Membayar dengan harga normal, diskon tidak berlaku pada total pembelanjaan ini"
+	WHILE "Diskon" equal "no"
+		STORE "HargaTotal" with 2000000
+	SET "TotalPembayaran" equal to "HargaTotal"
+	PRINT "Jumlah uang yang harus dibayarkan ialah : Rp. 2.000.000"
+
+ENDIF
+
+WHILE "Beli Lagi ?"
+IF "Yes"
+	CALL "Menu Utama"
+
+ELSE 
+	STORE "BuktiPembayaran" with "TotalPembayaran"
+	PRINT "Total Transaksi"
+
+ENDIF
+
+	
+
+
+
+
+
+
+
